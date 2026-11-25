@@ -1,3 +1,4 @@
+
 #!/usr/bin/env bash
 # Install and configure HAProxy to distribute traffic between web servers
 
@@ -25,9 +26,9 @@ frontend http_front
 
 backend web_servers
     balance roundrobin
-    server web01 35.177.153.101:80 check
-    server web02 3.8.174.101:80 check
+    server 6902-web-01 35.177.153.101:80 check
+    server 6902-web-02 3.8.174.101:80 check
 EOF
 
-haproxy -c -f /etc/haproxy/haproxy.cfg && systemctl restart haproxy
 systemctl enable haproxy
+systemctl restart haproxy
