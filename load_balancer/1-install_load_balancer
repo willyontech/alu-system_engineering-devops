@@ -29,5 +29,10 @@ backend web_servers
     server web-02 3.8.174.101:80 check
 EOF
 
+haproxy -c -f /etc/haproxy/haproxy.cfg
+
 systemctl enable haproxy
 systemctl restart haproxy
+
+echo "Configured backend web-01"
+echo "Configured backend web-02"
